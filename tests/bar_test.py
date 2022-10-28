@@ -1,5 +1,18 @@
-import unittest
-from classes.bar_class import Bar
+# import unittest
+# from classes.bar_class import Bar
 
-class TestBar(unittest.TestCase):
-    pass
+# bar_inventory = {
+#     "Henricks",
+#     "type": "Gin"
+#     "cost": 3.50,
+#     }
+#     {
+#     "name": "Bombay Sapphire"
+#     "type": "Gin",
+#     "cost": 3.50
+#     }
+# ]
+
+# class TestBar(unittest.TestCase):
+#     def setUp(self):
+#         self.bar = Bar()
