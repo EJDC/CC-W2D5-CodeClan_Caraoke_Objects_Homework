@@ -1,2 +1,2 @@
-# class Bar:
-#     def
+class Bar:
+    pass

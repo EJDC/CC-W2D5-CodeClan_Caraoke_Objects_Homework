@@ -7,3 +7,6 @@ class Guest:
         self.intoxication_level = 0
         self.score = 0
         self.wallet = wallet
+
+    def decrease_wallet(self, amount):
+        self.wallet -= amount

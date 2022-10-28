@@ -1,5 +1,5 @@
-# import unittest
-# from classes.bar_class import Bar
+import unittest
+from classes.bar_class import Bar
 
 # bar_inventory = {
 #     "Henricks",
@@ -13,6 +13,5 @@
 #     }
 # ]
 
-# class TestBar(unittest.TestCase):
-#     def setUp(self):
-#         self.bar = Bar()
+class TestBar(unittest.TestCase):
+    pass
