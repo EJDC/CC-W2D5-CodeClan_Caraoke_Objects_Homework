@@ -4,7 +4,7 @@ class Song:
         self.artist = artist
         self.album = album
         self.genre = genre
-        self.difficulty = difficulty
+        self.difficulty = difficulty  #(1-5)
 
     def add_to_playlist(self, song, room):
         room.playlist.append(song)
