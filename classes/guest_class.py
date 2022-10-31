@@ -17,8 +17,7 @@ class Guest:
 
 
     # Song Score =
-    # (Singing Level + Fav Song Bonus(5)) 
-    # - (Intoxication Level + Song Difficulty)
+    # (Singing Level  - (Intoxication Level + Song Difficulty)
     
     def score_song_attempt(self, difficulty):
         return (self.singing_level) - (self.intoxication_level + difficulty)

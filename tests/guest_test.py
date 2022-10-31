@@ -2,13 +2,17 @@ import unittest
 from classes.guest_class import Guest
 from classes.song_class import Song
 from classes.room_class import Room
+from classes.bar_class import Bar
+from dicts.menu import drinks_inventory
+from dicts.menu import food_inventory
 
 class TestGuest(unittest.TestCase):
     def setUp(self):
         self.song = Song("Africa", "Toto", "Toto IV", "Pop", 4)
         self.song_2 = Song("Bohemian Rhapsody", "Queen", "A Night at the Opera", "Rock", 6)
-        self.guest = Guest("Alistair", self.song, "Mohito", 7, 25.50)
+        self.guest = Guest("Alistair", self.song, "Neck Oil", 7, 25.50)
         self.room = Room(1, "Nirvana", 3,  100.00, 5.00)
+        self.bar = Bar(drinks_inventory, food_inventory)
 
     def test_guest_has_name(self):
         self.assertEqual("Alistair", self.guest.name)
@@ -17,7 +21,7 @@ class TestGuest(unittest.TestCase):
         self.assertEqual(self.song, self.guest.fav_song)
     
     def test_guest_has_favourite_drink(self):
-        self.assertEqual("Mohito", self.guest.fav_drink)
+        self.assertEqual("Neck Oil", self.guest.fav_drink)
 
     def test_guest_has_singing_level(self):
         self.assertEqual(7, self.guest.singing_level)
@@ -38,6 +42,11 @@ class TestGuest(unittest.TestCase):
         self.song.add_to_playlist(self.song, self.room)
         self.guest.sing_song(self.song, self.room)
         self.assertEqual(3, self.guest.total_score)
+
+    def test_score_song_attempt(self):
+        self.song.add_to_playlist(self.song, self.room)
+        self.guest.sing_song(self.song, self.room)
+        self.assertEqual(3, self.guest.total_score)
     
     def test_favourite_song_is_on_playlist(self):
         self.song.add_to_playlist(self.song, self.room)
@@ -47,5 +56,10 @@ class TestGuest(unittest.TestCase):
         self.song.add_to_playlist(self.song_2, self.room)
         self.assertEqual("Get Africa on that playlist!",  self.guest.check_for_fav_song(self.room))
         
+    def test_score_song_after_drinking_attempt(self):
+        self.song.add_to_playlist(self.song, self.room)
+        self.bar.serve_fav_drink(self.guest, self.room)
+        self.guest.sing_song(self.song, self.room)
+        self.assertEqual(2, self.guest.total_score)
 
 
